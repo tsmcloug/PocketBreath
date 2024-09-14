@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Breathwork Coaching App</title>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/tailwind.css') }}"
+        />
+    </head>
+    <body>
+        <div id="react-app">
+            <div
+                class="min-h-screen bg-gradient-to-br from-purple-400 via-pink-500 to-red-500 flex flex-col items-center justify-center p-4 text-white"
+            >
+                <h1 class="text-4xl font-bold mb-8">Let's breathe</h1>
+                <p class="text-xl">Loading Breathwork App...</p>
+            </div>
+        </div>
+        <script>
+            console.log("Script tag executed");
+            window.onerror = function (message, source, lineno, colno, error) {
+                console.error(
+                    "An error occurred:",
+                    message,
+                    source,
+                    lineno,
+                    colno,
+                    error,
+                );
+                document.getElementById("react-app").innerHTML +=
+                    '<p class="text-red-500 mt-4">Error loading app. Check console for details.</p>';
+            };
+        </script>
+        <script src="{{ url_for('static', filename='react/bundle.js') }}"></script>
+        <script>
+            console.log("Bundle script tag executed");
+            if (typeof React === "undefined") {
+                console.error("React is not defined");
+            } else {
+                console.log("React is defined");
+            }
+        </script>
+    </body>
+</html>

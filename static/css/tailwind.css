@@ -1,0 +1,46 @@
+@import 'https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css';
+
+/* Add any custom styles here */
+.breathing-circle {
+  position: relative;
+  width: 12rem;
+  height: 12rem;
+  margin: 0 auto;
+  transition: all 0.3s ease-in-out;
+}
+
+#breathing-circle {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(243,232,255,1) 100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10;
+}
+
+.inhale #breathing-circle {
+  animation: inhale var(--duration, 4s) cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.hold #breathing-circle {
+  animation: hold var(--duration, 4s) cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.exhale #breathing-circle {
+  animation: exhale var(--duration, 4s) cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes inhale {
+  from { transform: scale(0.8); }
+  to { transform: scale(1.2); }
+}
+
+@keyframes hold {
+  from { transform: scale(1.2); }
+  to { transform: scale(1.2); }
+}
+
+@keyframes exhale {
+  from { transform: scale(1.2); }
+  to { transform: scale(0.8); }
+}
